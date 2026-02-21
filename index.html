@@ -16,14 +16,13 @@
             padding: 10px;
         }
 
-        /* Top section: picture + Name/Course/Section under picture */
         .top {
             display: flex;
-            flex-direction: column; /* picture then Name/Course/Section under it */
-            align-items: flex-start; /* picture sa left */
+            flex-direction: column; 
+            
+            align-items: flex-start;
         }
 
-        /* 2x2 square profile picture */
         .profile-pic {
             width: 150px;
             height: 150px;
@@ -32,7 +31,6 @@
             margin-bottom: 5px;
         }
 
-        /* Each row for Name / Course / Section */
         .row {
             border: 1px solid black;
             padding: 5px 8px;
@@ -44,14 +42,13 @@
             font-weight: bold;
         }
 
-        /* Section title like Bio Info, Education, Hobbies */
         .section-title {
             font-weight: bold;
             padding: 5px 0 0 5px;
             margin-top: 10px;
         }
 
-        /* Section content */
+        
         .section-content {
             border: 0px solid black;
             padding: 5px 8px;
@@ -63,15 +60,14 @@
 
 <div class="container">
 
-    <!-- Picture + Name/Course/Section -->
     <div class="top">
-        <img src="yourphoto.jpg" class="profile-pic" alt="Profile Picture">
+        <img src="yourphoto.png" class="profile-pic" alt="Profile Picture">
         <div class="row"><span class="bold">Name:</span> Genesis A. Hilis</div>
         <div class="row"><span class="bold">Course:</span> Bachelor of Science in Computer Science</div>
         <div class="row"><span class="bold">Section:</span> BSCS - 1B</div>
     </div>
 
-    <!-- Bio Info -->
+    
     <div class="section-title">Bio Info</div>
     <div class="section-content">
         <div><span class="bold">Age:</span> 19</div>
@@ -79,7 +75,6 @@
         <div><span class="bold">Address:</span> Blk 42 Lot 40 Phase 1, Paliparan III, Dasmarinas City, Cavite</div>
     </div>
 
-    <!-- Education -->
     <div class="section-title">Education</div>
     <div class="section-content">
         Paliparan III Elementary School<br>
@@ -87,7 +82,6 @@
         Paliparan Senior High School
     </div>
 
-    <!-- Hobbies -->
     <div class="section-title">Hobbies</div>
     <div class="section-content">
         Watching movies / series<br>
