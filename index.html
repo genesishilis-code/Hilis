@@ -1,95 +1,284 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Profile</title>
-    <style>
-        body {
-            font-family: "Times New Roman", serif;
-            display: flex;
-            justify-content: center;
-            padding: 20px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome / Profile / Quiz / Exam</title>
 
-        .container {
-            width: 500px;
-            border: 4px solid black;
-            padding: 10px;
-        }
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; 
+    text-align: center;
+    color: #000; 
+}
 
-        .top {
-            display: flex;
-            flex-direction: column; 
-            
-            align-items: flex-start;
-        }
+/* NAVBAR */
+.navbar {
+    background-color: #3f4a75;
+    padding: 12px;
+    text-align: center;
+    display: none;
 
-        .profile-pic {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border: 3px solid black;
-            margin-bottom: 5px;
-        }
+    width: 100%;       
+    position: fixed;    
+    top: 0;
+    left: 0;
+}
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
 
-        .row {
-            border: 1px solid black;
-            padding: 5px 8px;
-            width: 100%;
-            margin-bottom: 3px;
-        }
+.navbar a:hover {
+    text-decoration: underline;
+}
 
-        .bold {
-            font-weight: bold;
-        }
+/* TITLE */
+.title {
+    margin: 20px 0;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
 
-        .section-title {
-            font-weight: bold;
-            padding: 5px 0 0 5px;
-            margin-top: 10px;
-        }
+/* WELCOME BUTTON */
+#welcome button {
+    padding: 15px 30px;
+    font-size: 18px;
+    cursor: pointer;
+}
 
-        
-        .section-content {
-            border: 0px solid black;
-            padding: 5px 8px;
-            margin-bottom: 5px;
-        }
-    </style>
+/* PROFILE CONTAINER (white/light) */
+.profile-container {
+    width: 90%;         
+    max-width: 400px;    
+    border: 2px solid #000;
+    background-color: #ffffff;
+    padding: 10px;
+    margin: auto;
+    text-align: left;
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 3px solid #000;
+    margin-bottom: 5px;
+}
+
+* {
+    box-sizing: border-box;
+}
+.row {
+    border: 1px solid #000;
+    padding: 5px 8px;
+    width: 100%;
+    margin-bottom: 3px;
+}
+
+.bold { font-weight: bold; }
+
+.section-title {
+    font-weight: bold;
+    padding: 5px 0 0 5px;
+    margin-top: 10px;
+}
+
+.section-content {
+    border: 1px solid #000;
+    padding: 5px 8px;
+    margin-bottom: 5px;
+}
+
+/* QUIZ / ACTIVITY / EXAM BOXES (dark blue) */
+.container-box {
+    width: 85%;
+    max-width: 800px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.box {
+    border: 2px solid #0b1d5d;
+    padding: 35px;
+    text-align: center;
+    background-color: #0b1d5d; 
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 500;
+    color: #ffffff; 
+}
+
+.box:hover {
+    background-color: #152a75; 
+}
+
+/* Sections hidden by default */
+.section { display: none; }
+
+button { 
+    margin-top: 15px; 
+    padding: 10px 20px; 
+    cursor: pointer; 
+    font-size: 16px; 
+}
+</style>
 </head>
 <body>
 
-<div class="container">
+<h2 class="title">WELCOME</h2>
 
-    <div class="top">
-        <img src="yourphoto.png" class="profile-pic" alt="Profile Picture">
-        <div class="row"><span class="bold">Name:</span> Genesis A. Hilis</div>
-        <div class="row"><span class="bold">Course:</span> Bachelor of Science in Computer Science</div>
-        <div class="row"><span class="bold">Section:</span> BSCS - 1B</div>
-    </div>
-
-    
-    <div class="section-title">Bio Info</div>
-    <div class="section-content">
-        <div><span class="bold">Age:</span> 19</div>
-        <div><span class="bold">Birthday:</span> October 26, 2006</div>
-        <div><span class="bold">Address:</span> Blk 42 Lot 40 Phase 1, Paliparan III, Dasmarinas City, Cavite</div>
-    </div>
-
-    <div class="section-title">Education</div>
-    <div class="section-content">
-        Paliparan III Elementary School<br>
-        Paliparan National High School<br>
-        Paliparan Senior High School
-    </div>
-
-    <div class="section-title">Hobbies</div>
-    <div class="section-content">
-        Watching movies / series<br>
-        Listening to music<br>
-        Journaling
-    </div>
-
+<!-- WELCOME SECTION -->
+<div id="welcome" class="section" style="display:block;">
+    <button onclick="showSection('profile')">Click to Start</button>
 </div>
+
+<!-- NAVBAR -->
+<div class="navbar" id="navbar">
+    <a onclick="showSection('profile')">Profile</a>
+    <a onclick="showSection('quiz')">Quiz/Act</a>
+    <a onclick="showSection('lab')">Lab Work</a>
+    <a onclick="showSection('exam')">Exam</a>
+</div>
+
+<!-- PROFILE SECTION -->
+<div id="profile" class="section">
+    <div class="profile-container">
+        <div class="top">
+            <img src="yourphoto.jpg" class="profile-pic" alt="Profile Picture">
+            <div class="row"><span class="bold">Name:</span> Genesis A. Hilis</div>
+            <div class="row"><span class="bold">Course:</span> Bachelor of Science in Computer Science</div>
+            <div class="row"><span class="bold">Section:</span> BSCS-1B</div>
+        </div>
+
+        <div class="section-title">Bio Info</div>
+        <div class="section-content">
+            <div><span class="bold">Age:</span> 19</div>
+            <div><span class="bold">Birthday:</span> October 26, 2006</div>
+            <div><span class="bold">Address:</span> BLK 42 LOT 40 PHASE 1, Paliparan III, Dasmarinas City, Cavite</div>
+        </div>
+
+        <div class="section-title">Education</div>
+        <div class="section-content">
+            Paliparan III Elementary School<br>
+            Paliparan National High School<br>
+            Paliparan Senior High School
+        </div>
+
+        <div class="section-title">Hobbies</div>
+        <div class="section-content">
+            Watching movies / series<br>
+            Listening to music<br>
+            Journaling
+        </div>
+    </div>
+</div>
+
+<!-- QUIZ / ACTIVITY SECTION -->
+<div id="quiz" class="section">
+    <div class="container-box">
+        <div class="box" onclick="showSection('quiz1')">Quiz 1</div>
+        <div class="box" onclick="showSection('quiz2')">Quiz 2</div>
+        <div class="box" onclick="showSection('activity1')">Activity 1</div>
+        <div class="box" onclick="showSection('activity2')">Activity 2</div>
+    </div>
+    <button onclick="showSection('profile')">Back to Profile</button>
+</div>
+
+<!-- LAB WORK SECTION -->
+<div id="lab" class="section">
+    <div class="container-box">
+        <div class="box" onclick="showSection('lab1')">Lab 1</div>
+        <div class="box" onclick="showSection('lab2')">Lab 2</div>
+    </div>
+    <button onclick="showSection('profile')">Back to Profile</button>
+</div>
+
+<!-- EXAM SECTION -->
+<div id="exam" class="section">
+    <div class="container-box">
+        <div class="box" onclick="showSection('midterm')">Midterm Exam</div>
+        <div class="box" onclick="showSection('final')">Final Exam</div>
+    </div>
+    <button onclick="showSection('profile')">Back to Profile</button>
+</div>
+
+<!-- QUIZ / ACTIVITY CONTENT -->
+<div id="quiz1" class="section">
+    <h3>Quiz 1 Content</h3>
+    <p>Put your quiz 1 here.</p>
+    <button onclick="showSection('quiz')">Back</button>
+</div>
+
+<div id="quiz2" class="section">
+    <h3>Quiz 2 Content</h3>
+    <p>Put your quiz 2 here.</p>
+    <button onclick="showSection('quiz')">Back</button>
+</div>
+
+<div id="activity1" class="section">
+    <h3>Activity 1 Content</h3>
+    <p>Put your activity 1 content here.</p>
+    <button onclick="showSection('quiz')">Back</button>
+</div>
+
+<div id="activity2" class="section">
+    <h3>Activity 2 Content</h3>
+    <p>Put your activity 2 content here.</p>
+    <button onclick="showSection('quiz')">Back</button>
+</div>
+
+<!-- LAB WORK -->
+<div id="lab1" class="section">
+    <h3>Lab 1 Content</h3>
+    <p>Put your lab 1 here.</p>
+    <button onclick="showSection('lab')">Back</button>
+</div>
+
+<div id="lab2" class="section">
+    <h3>Lab 2 Content</h3>
+    <p>Put your lab 2 here.</p>
+    <button onclick="showSection('quiz')">Back</button>
+</div>
+
+
+<!-- EXAM CONTENT -->
+<div id="midterm" class="section">
+    <h3>Midterm Exam</h3>
+    <p>Put your midterm exam content here.</p>
+    <button onclick="showSection('exam')">Back</button>
+</div>
+
+<div id="final" class="section">
+    <h3>Final Exam</h3>
+    <p>Put your final exam content here.</p>
+    <button onclick="showSection('exam')">Back</button>
+</div>
+
+<script>
+function showSection(id) {
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(sec => sec.style.display = 'none');
+    document.getElementById(id).style.display = 'block';
+
+    if(id !== 'welcome'){
+        document.getElementById('navbar').style.display = 'block';
+    }
+}
+</script>
 
 </body>
 </html>
