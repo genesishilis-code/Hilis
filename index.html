@@ -3,204 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Welcome / Profile / Quiz / Exam</title>
-
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-   background: linear-gradient(to bottom, #e6ccff, #f3e8ff, #ffffff);
-    text-align: center;
-    color: #000; 
-}
-.navbar {
-    background-color: #7b5fc9;
-    padding: 12px;
-    text-align: center;
-    display: none;
-
-    width: 100%;       
-    position: fixed;    
-    top: 0;
-    left: 0;
-}
-.navbar a {
-    color: white;
-    text-decoration: none;
-    margin: 0 20px;
-    font-size: 14px;
-    cursor: pointer;
-}
-
-.navbar a:hover {
-    text-decoration: underline;
-}
-    
-.title {
-    margin: 20px 0;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-#welcome button {
-    padding: 15px 30px;
-    font-size: 18px;
-    cursor: pointer;
-}
-
-.profile-container {
-    width: 90%;         
-    max-width: 400px;    
-    border: 2px solid #000;
-    background-color: #ffffff;
-    padding: 10px;
-    margin: auto;
-    text-align: left;
-}
-
-.top {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.profile-pic {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border: 3px solid #000;
-    margin-bottom: 5px;
-}
-
-* {
-    box-sizing: border-box;
-}
-.row {
-    border: 1px solid #000;
-    padding: 5px 8px;
-    width: 100%;
-    margin-bottom: 3px;
-}
-
-.bold { font-weight: bold; }
-
-.section-title {
-    font-weight: bold;
-    padding: 5px 0 0 5px;
-    margin-top: 10px;
-}
-
-.section-content {
-    border: 1px solid #000;
-    padding: 5px 8px;
-    margin-bottom: 5px;
-}
-
-.container-box {
-    width: 85%;
-    max-width: 800px;
-    margin: 20px auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-.box {
-    background-color: #7b5fc9;
-    border: 2px solid #5a3ea1;
-    padding: 35px;
-    text-align: center;
-    background-color: #0b1d5d; 
-    cursor: pointer;
-    transition: 0.3s;
-    font-weight: 500;
-    color: #ffffff; 
-}
-
-.box:hover {
-     background-color: #5a3ea1;
-}
-.section { display: none; }
-
-button { 
-    margin-top: 15px; 
-    padding: 10px 20px; 
-    cursor: pointer; 
-    font-size: 16px; 
-}
-</style>
-</head>
-<body>
-
-<h2 class="title">WELCOME</h2>
-
-<!-- NAVBAR -->
-<div class="navbar" id="navbar">
-    <a onclick="showSection('profile')">Profile</a>
-    <a onclick="showSection('quiz')">Quiz/Act</a>
-    <a onclick="showSection('lab')">Lab Work</a>
-    <a onclick="showSection('exam')">Exam</a>
-</div>
-
-<!-- PROFILE SECTION -->
-<div id="profile" class="section">
-    <div class="profile-container" style="max-width:600px; text-align:left; border:none;">
-
-        <img src="yourphoto.png" class="profile-pic" alt="Profile Picture">
-
-        <p><span class="bold">Name:</span> Genesis A. Hilis</p>
-        <p><span class="bold">Student Number:</span> 251100693</p>
-        <p><span class="bold">Course:</span> BS Computer Science</p>
-        <p><span class="bold">Section:</span> BSCS - 1B</p>
-
-        <div class="section-title">About Me</div>
-<div class="section-content" style="border:none; padding-left:0;">
-    I enjoy doing journaling 📓, watching movies and series 🎬, listening to music 🎶, and singing ✨ (especially for the Lord).
-    I also like exploring new things in technology 💻, learning about programming 👩‍💻, and improving my skills in computer science.
-    In my free time, I enjoy spending time with friends 🧑‍🤝‍🧑, reflecting on life 🌿, and discovering new songs 🎧.
-    I am passionate about growing both personally 🌱 and spiritually 🙏, and I strive to use my talents in meaningful ways ✨.
-</div>
-
-</div>
-</div>
-<!-- QUIZ / ACTIVITY SECTION -->
-<div id="quiz" class="section">
-    <div class="container-box">
-        <div class="box" onclick="showSection('quiz1')">Quiz 1</div>
-        <div class="box" onclick="showSection('quiz2')">Quiz 2</div>
-        <div class="box" onclick="showSection('activity1')">Activity 1</div>
-        <div class="box" onclick="showSection('activity2')">Activity 2</div>
-    </div>
-    <button onclick="showSection('profile')">Back to Profile</button>
-</div>
-
-<!-- LAB WORK SECTION -->
-<div id="lab" class="section">
-    <div class="container-box">
-        <div class="box" onclick="showSection('lab1')">Lab 1</div>
-        <div class="box" onclick="showSection('lab2')">Lab 2</div>
-    </div>
-    <button onclick="showSection('profile')">Back to Profile</button>
-</div>
-
-<!-- EXAM SECTION -->
-<div id="exam" class="section">
-    <div class="container-box">
-        <div class="box" onclick="showSection('midterm')">Midterm Exam</div>
-        <div class="box" onclick="showSection('final')">Final Exam</div>
-    </div>
-    <button onclick="showSection('profile')">Back to Profile</button>
-</div>
-
-<!-- QUIZ / ACTIVITY CONTENT -->
-<div id="quiz1" class="section"
-Genesis
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Welcome / Profile / Quiz / Exam</title>
+<title>Profile / Quiz / Lab / Exam</title>
 
 <style>
 body {
@@ -209,13 +12,14 @@ body {
     background: linear-gradient(to bottom, #e6ccff, #f3e8ff, #ffffff);
     text-align: center;
     color: #000;
+    padding-top: 45px;
 }
 
 .navbar {
     background-color: #7b5fc9;
     padding: 12px;
     text-align: center;
-    display: none;
+    display: block;
     width: 100%;
     position: fixed;
     top: 0;
@@ -240,12 +44,6 @@ body {
     letter-spacing: 1px;
 }
 
-#welcome button {
-    padding: 15px 30px;
-    font-size: 18px;
-    cursor: pointer;
-}
-
 .profile-container {
     width: 90%;
     max-width: 400px;
@@ -256,22 +54,12 @@ body {
     text-align: left;
 }
 
-.top {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
 .profile-pic {
     width: 150px;
     height: 150px;
     object-fit: cover;
     border: 3px solid #000;
     margin-bottom: 5px;
-}
-
-* {
-    box-sizing: border-box;
 }
 
 .row {
@@ -331,13 +119,6 @@ button {
 </head>
 <body>
 
-<h2 class="title">WELCOME</h2>
-
-<!-- WELCOME SECTION -->
-<div id="welcome" class="section" style="display:block;">
-    <button onclick="showSection('profile')">Click to Start</button>
-</div>
-
 <!-- NAVBAR -->
 <div class="navbar" id="navbar">
     <a onclick="showSection('profile')">Profile</a>
@@ -346,8 +127,10 @@ button {
     <a onclick="showSection('exam')">Exam</a>
 </div>
 
+<h2 class="title">MY PROFILE</h2>
+
 <!-- PROFILE SECTION -->
-<div id="profile" class="section">
+<div id="profile" class="section" style="display:block;">
     <div class="profile-container" style="max-width:600px; text-align:left; border:none;">
 
         <img src="yourphoto.png" class="profile-pic" alt="Profile Picture">
@@ -397,7 +180,7 @@ button {
     <button onclick="showSection('profile')">Back to Profile</button>
 </div>
 
-<!-- QUIZ / ACTIVITY CONTENT PLACEHOLDERS -->
+<!-- QUIZ / ACTIVITY CONTENT -->
 <div id="quiz1" class="section">
     <h3>Quiz 1</h3>
     <button onclick="showSection('quiz')">Back</button>
@@ -418,7 +201,7 @@ button {
     <button onclick="showSection('quiz')">Back</button>
 </div>
 
-<!-- LAB WORK CONTENT PLACEHOLDERS -->
+<!-- LAB CONTENT -->
 <div id="lab1" class="section">
     <h3>Lab 1</h3>
     <button onclick="showSection('lab')">Back</button>
@@ -429,7 +212,7 @@ button {
     <button onclick="showSection('lab')">Back</button>
 </div>
 
-<!-- EXAM CONTENT PLACEHOLDERS -->
+<!-- EXAM CONTENT -->
 <div id="midterm" class="section">
     <h3>Midterm Exam</h3>
     <button onclick="showSection('exam')">Back</button>
@@ -442,22 +225,9 @@ button {
 
 <script>
 function showSection(id) {
-    // Hide all sections
     document.querySelectorAll('.section').forEach(sec => sec.style.display = 'none');
-
-    // Show target section
     const target = document.getElementById(id);
     if (target) target.style.display = 'block';
-
-    // Show navbar after leaving welcome
-    const navbar = document.getElementById('navbar');
-    if (id !== 'welcome') {
-        navbar.style.display = 'block';
-        document.body.style.paddingTop = '45px';
-    } else {
-        navbar.style.display = 'none';
-        document.body.style.paddingTop = '0';
-    }
 }
 </script>
 
