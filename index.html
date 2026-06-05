@@ -3,234 +3,456 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Profile / Quiz / Lab / Exam</title>
+<title>Genesis Portfolio</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #e6ccff, #f3e8ff, #ffffff);
-    text-align: center;
-    color: #000;
-    padding-top: 45px;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
 }
 
-.navbar {
-    background-color: #7b5fc9;
-    padding: 12px;
-    text-align: center;
-    display: block;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
+html{
+    scroll-behavior:smooth;
 }
 
-.navbar a {
-    color: white;
-    text-decoration: none;
-    margin: 0 20px;
-    font-size: 14px;
-    cursor: pointer;
+body{
+    min-height:100vh;
+    background:linear-gradient(
+        135deg,
+        #3b1b5c,
+        #6b46c1,
+        #a78bfa,
+        #ddd6fe,
+        #f8f5ff
+    );
+    overflow-x:hidden;
 }
 
-.navbar a:hover {
-    text-decoration: underline;
+/* Animated Background */
+.bg-shape{
+    position:fixed;
+    border-radius:50%;
+    filter:blur(120px);
+    opacity:.35;
+    z-index:-1;
+    animation:float 10s ease-in-out infinite alternate;
 }
 
-.title {
-    margin: 20px 0;
-    font-weight: bold;
-    letter-spacing: 1px;
+.shape1{
+    width:300px;
+    height:300px;
+    background:#c084fc;
+    top:5%;
+    left:5%;
 }
 
-.profile-container {
-    width: 90%;
-    max-width: 400px;
-    border: 2px solid #000;
-    background-color: #ffffff;
-    padding: 10px;
-    margin: auto;
-    text-align: left;
+.shape2{
+    width:250px;
+    height:250px;
+    background:#93c5fd;
+    top:40%;
+    right:5%;
 }
 
-.profile-pic {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border: 3px solid #000;
-    margin-bottom: 5px;
+.shape3{
+    width:280px;
+    height:280px;
+    background:#f9a8d4;
+    bottom:0;
+    left:40%;
 }
 
-.row {
-    border: 1px solid #000;
-    padding: 5px 8px;
-    width: 100%;
-    margin-bottom: 3px;
+@keyframes float{
+    from{transform:translateY(0);}
+    to{transform:translateY(-80px);}
 }
 
-.bold { font-weight: bold; }
-
-.section-title {
-    font-weight: bold;
-    padding: 5px 0 0 5px;
-    margin-top: 10px;
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:15px;
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    background:rgba(255,255,255,.25);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(255,255,255,.3);
+    z-index:1000;
 }
 
-.section-content {
-    border: 1px solid #000;
-    padding: 5px 8px;
-    margin-bottom: 5px;
+.navbar a{
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
 }
 
-.container-box {
-    width: 85%;
-    max-width: 800px;
-    margin: 20px auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+.navbar a:hover{
+    color:#ffe082;
 }
 
-.box {
-    background-color: #0b1d5d;
-    border: 2px solid #5a3ea1;
-    padding: 35px;
-    text-align: center;
-    cursor: pointer;
-    transition: 0.3s;
-    font-weight: 500;
-    color: #ffffff;
+section{
+    display:none;
+    min-height:100vh;
+    padding:110px 10%;
+    animation:fadeIn .5s ease;
 }
 
-.box:hover {
-    background-color: #5a3ea1;
+section.active{
+    display:block;
 }
 
-.section { display: none; }
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
 
-button {
-    margin-top: 15px;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px;
+.glass{
+    background:rgba(255,255,255,.18);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:30px;
+    box-shadow:0 20px 50px rgba(0,0,0,.15);
+}
+
+.profile-card{
+    max-width:800px;
+    margin:auto;
+    padding:40px;
+    text-align:center;
+    color:white;
+}
+
+.profile-card img{
+    width:180px;
+    height:180px;
+    object-fit:cover;
+    border-radius:50%;
+    border:5px solid rgba(255,255,255,.5);
+    margin-bottom:20px;
+    animation:floatProfile 4s ease-in-out infinite;
+}
+
+@keyframes floatProfile{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+}
+
+.profile-card h2{
+    margin-bottom:10px;
+    font-size:2rem;
+}
+
+.profile-card p{
+    margin-top:10px;
+    line-height:1.7;
+}
+
+.title{
+    text-align:center;
+    color:white;
+    font-size:2.2rem;
+    margin-bottom:30px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    position:relative;
+    overflow:hidden;
+    padding:35px;
+    text-align:center;
+    cursor:pointer;
+    color:white;
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card::before{
+    content:'';
+    position:absolute;
+    width:200%;
+    height:200%;
+    top:-100%;
+    left:-100%;
+    background:linear-gradient(
+        45deg,
+        transparent,
+        rgba(255,255,255,.2),
+        transparent
+    );
+    transition:.6s;
+}
+
+.card:hover::before{
+    top:100%;
+    left:100%;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.detail{
+    max-width:900px;
+    margin:auto;
+    padding:30px;
+    text-align:center;
+    color:white;
+}
+
+.detail img{
+    width:100%;
+    max-width:700px;
+    border-radius:20px;
+    margin:20px 0;
+    box-shadow:0 15px 30px rgba(0,0,0,.2);
+}
+
+button{
+    padding:12px 30px;
+    border:none;
+    border-radius:30px;
+    background:rgba(255,255,255,.25);
+    backdrop-filter:blur(10px);
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:20px;
+    transition:.3s;
+}
+
+button:hover{
+    transform:translateY(-3px);
+    background:rgba(255,255,255,.4);
 }
 </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<div class="navbar" id="navbar">
+<div class="bg-shape shape1"></div>
+<div class="bg-shape shape2"></div>
+<div class="bg-shape shape3"></div>
+
+<div class="navbar">
     <a onclick="showSection('profile')">Profile</a>
-    <a onclick="showSection('quiz')">Quiz/Act</a>
+    <a onclick="showSection('quiz')">Quiz</a>
     <a onclick="showSection('lab')">Lab Work</a>
     <a onclick="showSection('exam')">Exam</a>
 </div>
 
-<h2 class="title">MY PROFILE</h2>
+<section id="profile" class="active">
+    <div class="profile-card glass">
 
-<!-- PROFILE SECTION -->
-<div id="profile" class="section" style="display:block;">
-    <div class="profile-container" style="max-width:600px; text-align:left; border:none;">
+        <img src="yourphoto.png" alt="Profile">
 
-        <img src="yourphoto.png" class="profile-pic" alt="Profile Picture">
+        <h2>Genesis A. Hilis</h2>
 
-        <p><span class="bold">Name:</span> Genesis A. Hilis</p>
-        <p><span class="bold">Student Number:</span> 251100693</p>
-        <p><span class="bold">Course:</span> BS Computer Science</p>
-        <p><span class="bold">Section:</span> BSCS - 1B</p>
+        <p><b>Student Number:</b> 251100693</p>
+        <p><b>Course:</b> BS Computer Science</p>
+        <p><b>Section:</b> BSCS-1B</p>
 
-        <div class="section-title">About Me</div>
-        <div class="section-content" style="border:none; padding-left:0;">
-            Hello! Hi! 👋
-            I enjoy doing journaling 📓, watching movies and series 🎬, listening to music 🎶, and singing ✨ (especially for the Lord).
-            I also like exploring new things in technology 💻, learning about programming 👩‍💻, and improving my skills in computer science.
-            In my free time, I enjoy spending time with friends 🧑‍🤝‍🧑, reflecting on life 🌿, and discovering new songs 🎧.
-            I am passionate about growing both personally 🌱 and spiritually 🙏, and I strive to use my talents in meaningful ways ✨.
+        <p>
+        Hello! 👋 I enjoy journaling 📓, movies 🎬,
+        music 🎶, singing ✨, technology 💻,
+        programming 👩‍💻, and learning new things.
+        I strive to grow both personally 🌱
+        and spiritually 🙏.
+        </p>
+
+    </div>
+</section>
+
+<section id="quiz">
+    <h2 class="title">📘 Quizzes</h2>
+
+    <div class="grid">
+
+        <div class="card glass" onclick="showSection('quiz1')">
+            <h3>Quiz 1</h3>
+            <p>Click to view</p>
+        </div>
+
+        <div class="card glass" onclick="showSection('quiz2')">
+            <h3>Quiz 2</h3>
+            <p>Click to view</p>
         </div>
 
     </div>
-</div>
 
-<!-- QUIZ / ACTIVITY SECTION -->
-<div id="quiz" class="section">
-    <div class="container-box">
-        <div class="box" onclick="showSection('quiz1')">Quiz 1</div>
-        <div class="box" onclick="showSection('quiz2')">Quiz 2</div>
-        <div class="box" onclick="showSection('activity1')">Activity 1</div>
-        <div class="box" onclick="showSection('activity2')">Activity 2</div>
+    <center>
+        <button onclick="showSection('profile')">← Back</button>
+    </center>
+</section>
+
+<section id="quiz1">
+    <div class="detail glass">
+        <h2>📘 Quiz 1</h2>
+
+        <img src="quiz1.jpg" alt="Quiz 1">
+
+        <p>
+            Insert your Quiz 1 here.
+        </p>
+        <button onclick="showSection('quiz')">
+            ← Back to Quiz
+        </button>
     </div>
-    <button onclick="showSection('profile')">Back to Profile</button>
-</div>
+</section>
 
-<!-- LAB WORK SECTION -->
-<div id="lab" class="section">
-    <div class="container-box">
-        <div class="box" onclick="showSection('lab1')">Lab 1</div>
-        <div class="box" onclick="showSection('lab2')">Lab 2</div>
+<section id="quiz2">
+    <div class="detail glass">
+        <h2>📘 Quiz 2</h2>
+
+        <img src="quiz2.jpg" alt="Quiz 2">
+
+        <p>
+            Insert your Quiz 2 here.
+        </p>
+
+        <button onclick="showSection('quiz')">
+            ← Back to Quiz
+        </button>
     </div>
-    <button onclick="showSection('profile')">Back to Profile</button>
-</div>
+</section>
 
-<!-- EXAM SECTION -->
-<div id="exam" class="section">
-    <div class="container-box">
-        <div class="box" onclick="showSection('midterm')">Midterm Exam</div>
-        <div class="box" onclick="showSection('final')">Final Exam</div>
+<section id="lab">
+    <h2 class="title">💻 Laboratory Works</h2>
+
+    <div class="grid">
+
+        <div class="card glass" onclick="showSection('lab1')">
+            <h3>Lab 1</h3>
+        </div>
+
+        <div class="card glass" onclick="showSection('lab2')">
+            <h3>Lab 2</h3>
+        </div>
+
     </div>
-    <button onclick="showSection('profile')">Back to Profile</button>
-</div>
 
-<!-- QUIZ / ACTIVITY CONTENT -->
-<div id="quiz1" class="section">
-    <h3>Quiz 1</h3>
-    <button onclick="showSection('quiz')">Back</button>
-</div>
+    <center>
+        <button onclick="showSection('profile')">← Back</button>
+    </center>
+</section>
 
-<div id="quiz2" class="section">
-    <h3>Quiz 2</h3>
-    <button onclick="showSection('quiz')">Back</button>
-</div>
+<section id="lab1">
+    <div class="detail glass">
+        <h2>💻 Lab 1</h2>
 
-<div id="activity1" class="section">
-    <h3>Activity 1</h3>
-    <button onclick="showSection('quiz')">Back</button>
-</div>
+        <img src="lab1.jpg" alt="Lab 1">
 
-<div id="activity2" class="section">
-    <h3>Activity 2</h3>
-    <button onclick="showSection('quiz')">Back</button>
-</div>
+        <p>
+            Insert Lab 2 here.
+        </p>
 
-<!-- LAB CONTENT -->
-<div id="lab1" class="section">
-    <h3>Lab 1</h3>
-    <button onclick="showSection('lab')">Back</button>
-</div>
+        <button onclick="showSection('lab')">
+            ← Back to Lab
+        </button>
+    </div>
+</section>
 
-<div id="lab2" class="section">
-    <h3>Lab 2</h3>
-    <button onclick="showSection('lab')">Back</button>
-</div>
+<section id="lab2">
+    <div class="detail glass">
+        <h2>💻 Lab 2</h2>
 
-<!-- EXAM CONTENT -->
-<div id="midterm" class="section">
-    <h3>Midterm Exam</h3>
-    <button onclick="showSection('exam')">Back</button>
-</div>
+        <img src="lab2.jpg" alt="Lab 2">
 
-<div id="final" class="section">
-    <h3>Final Exam</h3>
-    <button onclick="showSection('exam')">Back</button>
-</div>
+        <p>
+            Insert Lab 1 here.
+        </p>
+
+        <button onclick="showSection('lab')">
+            ← Back to Lab
+        </button>
+    </div>
+</section>
+
+<section id="exam">
+    <h2 class="title">📝 Examinations</h2>
+
+    <div class="grid">
+
+        <div class="card glass" onclick="showSection('midterm')">
+            <h3>Midterm Exam</h3>
+        </div>
+
+        <div class="card glass" onclick="showSection('final')">
+            <h3>Final Exam</h3>
+        </div>
+
+    </div>
+
+    <center>
+        <button onclick="showSection('profile')">← Back</button>
+    </center>
+</section>
+
+<section id="midterm">
+    <div class="detail glass">
+        <h2>📝 Midterm Exam</h2>
+
+        <img src="midterm.jpg" alt="Midterm">
+
+        <p>
+            Insert Midterm Exam here.
+        </p>
+
+        <button onclick="showSection('exam')">
+            ← Back to Exam
+        </button>
+    </div>
+</section>
+
+<section id="final">
+    <div class="detail glass">
+        <h2>🎓 Final Exam</h2>
+
+        <img src="final.jpg" alt="Final">
+
+        <p>
+            Insert Final Exam here.
+        </p>
+
+        <button onclick="showSection('exam')">
+            ← Back to Exam
+        </button>
+    </div>
+</section>
 
 <script>
-function showSection(id) {
-    document.querySelectorAll('.section').forEach(sec => sec.style.display = 'none');
-    const target = document.getElementById(id);
-    if (target) target.style.display = 'block';
+function showSection(id){
+    document.querySelectorAll("section").forEach(section=>{
+        section.classList.remove("active");
+    });
+
+    document.getElementById(id).classList.add("active");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 }
 </script>
 
 </body>
 </html>
+
